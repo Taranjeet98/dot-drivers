@@ -7,6 +7,7 @@ use App\Livewire\Settings\TwoFactor;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
 use App\Livewire\Drivers\CreateDriver;
+use App\Livewire\Drivers\DriverTable;
 
 Route::get('/', function () {
     return view('welcome');
@@ -35,4 +36,6 @@ Route::middleware(['auth'])->group(function () {
         ->name('two-factor.show');
 
     Route::get('/drivers/create', CreateDriver::class)->name('drivers.create');
+    Route::get('/drivers/new-applicants', DriverTable::class)
+    ->name('drivers.new-applicants');
 });
